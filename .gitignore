@@ -1,6 +1,28 @@
+# API Keys and Secrets
 api_key.txt
+.env
+
+# Byte-compiled / Optimized / DLL files
 __pycache__/
-*.pyc
-chroma_db/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
 venv_clean/
+.venv/
+env/
+
+# Vector Database (generated, can be large)
+chroma_db/
+
+# Local cache files
 processed_files.json
+*.log
+
+# IDE / Editor settings
+.vscode/
+.idea/
+
+# Large data files (users should add their own PDFs)
+bike_manuals/

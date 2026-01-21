@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 
 # Global variables
 vector_store = None
@@ -14,16 +15,14 @@ def initialize_rag():
         from langchain_community.vectorstores import Chroma
         from langchain_core.prompts import PromptTemplate
 
-        # Read API Key
-        try:
-            with open('api_key.txt', 'r') as f:
-                api_key = f.read().strip()
-                if not api_key:
-                    raise ValueError("api_key.txt is empty")
-                os.environ["GOOGLE_API_KEY"] = api_key
-        except Exception as e:
-            print(f"Error reading API key: {e}")
-            raise e
+        # Load environment variables from .env file
+        load_dotenv()
+        
+        # Read API Key from environment variable
+        api_key = os.getenv("GOOGLE_API_KEY")
+        if not api_key:
+            raise ValueError("GOOGLE_API_KEY environment variable is not set. Please create a .env file or set the variable.")
+        os.environ["GOOGLE_API_KEY"] = api_key
 
         # Initialize Embeddings
         print("Loading embeddings...")
