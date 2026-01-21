@@ -1,0 +1,6 @@
+api_key.txt
+__pycache__/
+*.pyc
+chroma_db/
+venv_clean/
+processed_files.json
